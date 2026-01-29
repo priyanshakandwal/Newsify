@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import { useRouter, usePathname } from "next/navigation"
-import { Moon, Sun, Newspaper, Search, Menu, X } from "lucide-react"
+import { Moon, Sun, Newspaper, Search, Menu, X, TrendingUp, Zap } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 
@@ -14,6 +14,7 @@ export function Header() {
     const { theme, setTheme } = useTheme()
     const router = useRouter()
     const pathname = usePathname()
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     useEffect(() => {
         setMounted(true)
@@ -77,11 +78,54 @@ export function Header() {
                         </motion.button>
                     )}
 
-                    <button className="md:hidden p-2">
-                        <Menu className="h-6 w-6" />
+                    <button
+                        className="md:hidden p-2 text-foreground active:scale-95 transition-transform"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        aria-label="Toggle Menu"
+                    >
+                        {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                     </button>
                 </div>
             </div>
+
+            {/* Mobile Menu Overlay */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="md:hidden border-b border-white/10 bg-background/95 backdrop-blur-3xl overflow-hidden"
+                    >
+                        <nav className="flex flex-col p-6 gap-4">
+                            <Link
+                                href="/"
+                                onClick={() => setIsMenuOpen(false)}
+                                className="flex items-center gap-3 text-lg font-semibold py-2 border-b border-white/5"
+                            >
+                                <Newspaper className="h-5 w-5 text-primary" />
+                                Newspapers
+                            </Link>
+                            <Link
+                                href="/current-affairs"
+                                onClick={() => setIsMenuOpen(false)}
+                                className="flex items-center gap-3 text-lg font-semibold py-2 border-b border-white/5"
+                            >
+                                <TrendingUp className="h-5 w-5 text-primary" />
+                                Current Affairs
+                            </Link>
+                            <Link
+                                href="/live-tv"
+                                onClick={() => setIsMenuOpen(false)}
+                                className="flex items-center gap-3 text-lg font-semibold py-2"
+                            >
+                                <Zap className="h-5 w-5 text-primary" />
+                                Live TV
+                            </Link>
+                        </nav>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     )
 }
