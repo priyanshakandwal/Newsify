@@ -42,16 +42,16 @@ function HomeContent() {
       <PulseTicker />
 
       <section className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 pt-32 pb-20 text-center overflow-hidden bg-[#050505] text-white">
-        {/* Advanced Background Decorative Elements */}
-        <div className="absolute inset-0 -z-10">
+        {/* Advanced Background Decorative Elements - Simplified for Performance */}
+        <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
           <motion.div
             animate={{
               x: [0, 50, -30, 0],
               y: [0, -30, 40, 0],
               scale: [1, 1.1, 0.9, 1]
             }}
-            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-            className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px] opacity-20"
+            transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+            className="absolute top-1/4 left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-primary/20 rounded-full blur-[80px] md:blur-[150px] opacity-20 will-change-transform"
           />
           <motion.div
             animate={{
@@ -59,10 +59,10 @@ function HomeContent() {
               y: [0, 50, -20, 0],
               scale: [1, 0.8, 1.2, 1]
             }}
-            transition={{ repeat: Infinity, duration: 25, ease: "linear", delay: 2 }}
-            className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[150px] opacity-10"
+            transition={{ repeat: Infinity, duration: 30, ease: "linear", delay: 2 }}
+            className="absolute bottom-1/4 right-1/4 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-emerald-500/10 rounded-full blur-[80px] md:blur-[150px] opacity-10 will-change-transform"
           />
-          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+          <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none" />
         </div>
 
         <motion.div

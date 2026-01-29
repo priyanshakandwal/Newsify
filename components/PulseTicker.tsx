@@ -62,15 +62,15 @@ export function PulseTicker() {
             <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#050505] to-transparent z-10" />
 
             <motion.div
-                animate={{ x: [0, -2000] }}
+                animate={{ x: [0, -1035] }} // Adjusted for 2 repeats
                 transition={{
                     repeat: Infinity,
-                    duration: 40,
+                    duration: 25,
                     ease: "linear"
                 }}
-                className="inline-flex gap-12 items-center px-12"
+                className="inline-flex gap-12 items-center px-12 will-change-transform"
             >
-                {[...stats, ...stats, ...stats, ...stats].map((stat, i) => (
+                {[...stats, ...stats].map((stat, i) => (
                     <div key={i} className="flex items-center gap-4 group">
                         <div className={cn(
                             "flex items-center justify-center p-1.5 rounded-lg border transition-all duration-500",

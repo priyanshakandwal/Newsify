@@ -185,7 +185,7 @@ export default function CategoryPage() {
                                 transition={{ delay: i * 0.1, type: 'spring', damping: 15 }}
                                 className="relative h-[600px] rounded-[4rem] overflow-hidden border border-white/5 bg-zinc-950/40 backdrop-blur-3xl transition-all hover:border-white/20 hover:shadow-[0_0_100px_-20px_rgba(255,255,255,0.1)] flex flex-col group"
                             >
-                                {/* Abstract Animated Background */}
+                                {/* Abstract Animated Background - Optimized for mobile */}
                                 <div className={cn("absolute inset-0 z-0 bg-gradient-to-br transition-all duration-700 group-hover:scale-110", style.gradient)}>
                                     <motion.div
                                         animate={{
@@ -193,8 +193,8 @@ export default function CategoryPage() {
                                             y: [0, -50, 50, 0],
                                             scale: [1, 1.2, 0.8, 1]
                                         }}
-                                        transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
-                                        className={cn("absolute top-[-20%] left-[-10%] w-[300px] h-[300px] rounded-full mix-blend-screen blur-[80px] opacity-40", style.blob)}
+                                        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+                                        className={cn("absolute top-[-20%] left-[-10%] w-[200px] md:w-[300px] h-[200px] md:h-[300px] rounded-full mix-blend-screen blur-[60px] md:blur-[80px] opacity-40 will-change-transform", style.blob)}
                                     />
                                     <motion.div
                                         animate={{
@@ -202,8 +202,8 @@ export default function CategoryPage() {
                                             y: [0, 80, -40, 0],
                                             scale: [1, 0.9, 1.3, 1]
                                         }}
-                                        transition={{ repeat: Infinity, duration: 20, ease: "linear", delay: 2 }}
-                                        className={cn("absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] rounded-full mix-blend-screen blur-[100px] opacity-30", style.blob)}
+                                        transition={{ repeat: Infinity, duration: 25, ease: "linear", delay: 2 }}
+                                        className={cn("absolute bottom-[-10%] right-[-10%] w-[300px] md:w-[400px] h-[300px] md:h-[400px] rounded-full mix-blend-screen blur-[80px] md:blur-[100px] opacity-30 will-change-transform", style.blob)}
                                     />
 
                                     {/* Grainy Texture overlay */}
