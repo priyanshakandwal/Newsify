@@ -42,12 +42,7 @@ I have already initialized Git and committed your files. To push to your account
    git push -u origin main
    ```
 
-### 2. Connect to Netlify
-1. Log in to [Netlify](https://app.netlify.com).
-2. Click **"Add new site"** -> **"Import from existing project"**.
-3. Select **GitHub** and authorize.
-4. Pick this repository.
-5. Netlify will automatically detect Next.js settings. Click **"Deploy"**.
+
 
 ### Benefits
 - **No Manual Uploads:** You only manage 29 files; the cloud handles the rest.
